@@ -4,7 +4,15 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "bun run --hot src/index.ts"
+    "dev": "bun run --hot src/index.ts",
+    "start": "bun run src/index.ts",
+    "build": "bun build src/index.ts --outdir ./build --target bun --compile",
+    "build:exe": "bun build src/index.ts --compile --outfile ./build/server",
+    "pm2:start": "pm2 start ecosystem.config.cjs",
+    "pm2:stop": "pm2 stop ecosystem.config.cjs",
+    "pm2:restart": "pm2 restart ecosystem.config.cjs",
+    "pm2:logs": "pm2 logs dahan-24",
+    "pm2:monit": "pm2 monit"
   },
   "devDependencies": {
     "@types/bun": "latest"

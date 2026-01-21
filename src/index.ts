@@ -1,5 +1,6 @@
 import { Hono } from "hono";
 import { serveStatic } from "hono/bun";
+import { cors } from 'hono/cors'
 
 import api from "./router/api";
 import ping from "./router/ping";
@@ -16,6 +17,8 @@ const app = new Hono();
 // - 其余 router 模块提供子路径（例如 /api/ping, /api/generate, /api/nfc）
 // 挂载顺序：先挂具体路由，再挂静态资源
 // ----------------
+
+app.use('/api/*', cors())
 app.route("/api", api); // GET /api/ -> Hello Bun!
 app.route("/api", ping); // GET /api/ping
 app.route("/api", generateImage); // POST /api/generate

@@ -1,5 +1,6 @@
 ### 列出所有 JSON keys
 GET http://localhost:5174/api/json
+# 200 {"success":true,"count":0,"data":[]}
 
 ### 创建/更新 JSON
 PUT http://localhost:5174/api/json/user-config
