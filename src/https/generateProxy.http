@@ -1,0 +1,56 @@
+### 测试代理接口 - 生成图片
+# 这个请求会转发到 101.35.246.159/api/generate
+POST http://localhost:5174/api/generate-proxy
+Content-Type: application/json
+
+{
+  "width": 750,
+  "height": 1334,
+  "elements": [
+    {
+      "type": "text",
+      "x": 50,
+      "y": 100,
+      "width": 650,
+      "height": 100,
+      "content": "Hello from Proxy!",
+      "fontSize": 48,
+      "color": "#333333",
+      "fontFamily": "Arial",
+      "fontWeight": "bold"
+    },
+    {
+      "type": "text",
+      "x": 50,
+      "y": 300,
+      "width": 650,
+      "height": 200,
+      "content": "This request is proxied to remote server",
+      "fontSize": 32,
+      "color": "#666666",
+      "fontFamily": "Arial"
+    }
+  ]
+}
+
+### 测试代理接口 - 简单文字
+POST http://localhost:5174/api/generate-proxy
+Content-Type: application/json
+
+{
+  "width": 500,
+  "height": 500,
+  "elements": [
+    {
+      "type": "text",
+      "x": 0,
+      "y": 200,
+      "width": 500,
+      "height": 100,
+      "content": "Proxy Test",
+      "fontSize": 36,
+      "color": "#000000",
+      "fontFamily": "Arial"
+    }
+  ]
+}

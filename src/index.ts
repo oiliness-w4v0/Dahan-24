@@ -5,6 +5,8 @@ import api from "./router/api";
 import ping from "./router/ping";
 import generateImage from "./router/generateImage";
 import nfc from "./router/nfc";
+import jsonStore from "./router/jsonStore";
+import generateProxy from "./router/generateProxy";
 
 const app = new Hono();
 
@@ -18,6 +20,8 @@ app.route("/api", api); // GET /api/ -> Hello Bun!
 app.route("/api", ping); // GET /api/ping
 app.route("/api", generateImage); // POST /api/generate
 app.route("/api", nfc); // GET /api/nfc
+app.route("/api", jsonStore); // JSON Store CRUD APIs
+app.route("/api", generateProxy); // POST /api/generate-proxy (代理到远程服务器)
 
 // Serve static files from ./dist for all other routes
 app.use("/*", serveStatic({ root: "./dist/" }));

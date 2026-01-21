@@ -1,0 +1,45 @@
+### 列出所有 JSON keys
+GET http://localhost:5174/api/json
+
+### 创建/更新 JSON
+PUT http://localhost:5174/api/json/user-config
+Content-Type: application/json
+
+{
+  "theme": "dark",
+  "language": "zh-CN",
+  "settings": {
+    "notifications": true,
+    "autoSave": true
+  }
+}
+
+### 获取指定 key 的 JSON
+GET http://localhost:5174/api/json/user-config
+
+### 更新已存在的 JSON
+PUT http://localhost:5174/api/json/user-config
+Content-Type: application/json
+
+{
+  "theme": "light",
+  "language": "en-US",
+  "settings": {
+    "notifications": false,
+    "autoSave": false
+  }
+}
+
+### 创建另一个 JSON
+PUT http://localhost:5174/api/json/product-list
+Content-Type: application/json
+
+{
+  "products": [
+    { "id": 1, "name": "Laptop", "price": 999 },
+    { "id": 2, "name": "Mouse", "price": 29 }
+  ]
+}
+
+### 删除指定 key 的 JSON
+DELETE http://localhost:5174/api/json/user-config
